@@ -60,13 +60,13 @@ private fun ComposeSwipe() {
     val color = animateColorAsState(
         targetValue = bgColor,
         animationSpec = tween(
-            durationMillis = 2000
+            durationMillis = 2000   // tiempo en cambiar de color
         )
     )
 
-    val squareSize =150.dp
+    val squareSize =150.dp   // tamaño del desplazamiento de swipe
     val swipeAbleState= rememberSwipeableState(initialValue = 0)
-    val sizePx = with(LocalDensity.current) { squareSize.toPx()}
+    val sizePx = with(LocalDensity.current) { squareSize.toPx()}  // convierte a pixel
     val anchors = mapOf(0f to 0, sizePx to 1)
 
     Column (
@@ -90,7 +90,7 @@ private fun ComposeSwipe() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Box(modifier = Modifier
+            Box(modifier = Modifier    // caja principal
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(20.dp))
                 .background(Color.LightGray)
@@ -135,7 +135,7 @@ private fun ComposeSwipe() {
                     }
                     
                 }
-                Box(
+                Box(   // caja desplazable
                     modifier = Modifier
                         .offset {
                             IntOffset(
@@ -170,19 +170,13 @@ private fun ComposeSwipe() {
 
                         Column {
                             Text(
-                                text = "Swipe Layout",
+                                text = "Ejemplo Swipe",
                                 color = Color.White,
                                 fontSize = 25.sp,
                                 fontWeight = FontWeight.Bold
                             )
 
-                            Spacer(modifier = Modifier.padding(10.dp))
 
-                            Text(
-                                text = "Lorem Ipsum is simply dummy text of the printing and type setting industry...",
-                                color = Color.White,
-                                fontSize = 18.sp
-                            )
                         }
                     }
                 }
